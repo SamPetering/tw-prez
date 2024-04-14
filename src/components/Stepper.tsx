@@ -1,9 +1,9 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Example from './Example/Index';
-
+import { useHotkeys } from 'react-hotkeys-hook';
 const steps = [
   {
     id: 'Intro',
@@ -33,6 +33,8 @@ const steps = [
 
 function Stepper() {
   const [step, setStep] = useState(0);
+  const pRef = useRef<HTMLButtonElement>(null);
+  const nRef = useRef<HTMLButtonElement>(null);
   const changeStep = (dir: 'left' | 'right') => {
     if (dir === 'left') {
       setStep((prev) => (prev <= 0 ? steps.length - 1 : prev - 1));
@@ -40,26 +42,36 @@ function Stepper() {
       setStep((prev) => (prev >= steps.length - 1 ? 0 : prev + 1));
     }
   };
+  useHotkeys('ctrl+p', () => pRef.current?.click());
+  useHotkeys('ctrl+n', () => nRef.current?.click());
   return (
     <div>
       {/* controls */}
       <div className="mx-auto flex w-full max-w-lg flex-col gap-4">
         {/* buttons and title */}
-        <div className="w-ful flex justify-between">
+        <div className="w-ful flex items-center justify-between">
           <button
-            className="rounded-md border-2 border-zinc-500 px-4 py-[1px] text-sm text-zinc-500 transition-colors hover:border-green-300 hover:text-green-300"
+            className={cn(
+              'bg-qz-twilight500 hover:bg-qz-twilight600 text-qz-gray100',
+              'w-fit rounded-md px-4 py-2 font-semibold shadow-md transition-colors'
+            )}
+            ref={pRef}
             onClick={() => changeStep('left')}
             type="button"
           >
-            p
+            {'<C-p>'}
           </button>
-          {steps[step].id}
+          <h1 className="text-4xl font-bold">{steps[step].id}</h1>
           <button
-            className="rounded-md border-2 border-zinc-500 px-4 py-[1px] text-sm text-zinc-500 transition-colors hover:border-green-300 hover:text-green-300"
+            className={cn(
+              'bg-qz-twilight500 hover:bg-qz-twilight600 text-qz-gray100',
+              'w-fit rounded-md px-4 py-2 font-semibold shadow-md transition-colors'
+            )}
+            ref={nRef}
             onClick={() => changeStep('right')}
             type="button"
           >
-            n
+            {'<C-n>'}
           </button>
         </div>
         {/* steps */}
@@ -71,12 +83,12 @@ function Stepper() {
               <button
                 key={s.id}
                 className={cn(
-                  'h-2 w-full rounded-full bg-green-500 transition-all',
+                  'bg-qz-mint500 h-2 w-full rounded-full transition-all',
                   complete
-                    ? 'bg-green-500 opacity-80'
+                    ? 'opacity-80'
                     : active
                       ? 'scale-y-125 opacity-100'
-                      : 'bg-green-300 opacity-30'
+                      : 'opacity-30'
                 )}
                 onClick={() => setStep(i)}
                 type="button"

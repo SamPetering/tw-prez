@@ -79,6 +79,7 @@ const ModesButton = styled.div`
   display: flex;
   padding: 0.8rem 1rem;
   font-weight: 600;
+  width: 100%;
   gap: 0.8rem;
   text-wrap: nowrap;
   justify-content: start;

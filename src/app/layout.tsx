@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'min-h-[100dvh] bg-zinc-900 pt-6 text-zinc-50',
+          'bg-qz-gray200 text-qz-gray800 min-h-[100dvh] pt-6',
           inter.className
         )}
       >
