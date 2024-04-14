@@ -17,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('bg-zinc-900 text-zinc-50', inter.className)}>
+      <body
+        className={cn(
+          'min-h-[100dvh] bg-zinc-900 pt-6 text-zinc-50',
+          inter.className
+        )}
+      >
         {children}
       </body>
     </html>

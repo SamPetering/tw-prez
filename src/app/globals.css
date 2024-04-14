@@ -2,6 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
+/* quizlet stuff */
+.QBody {
+  background-color: rgb(246 247 251 / 1);
+  color: rgb(40 46 62 / 1);
+  padding: 1rem;
+}
+.Breadcrumb-Wrapper {
+  display: flex;
+  flex-direction: row;
+  color: rgb(88 99 128 / 1);
+  font-weight: 600;
+  font-size: 14px;
+}
+.Breadcrumb-Link {
+  display: flex;
+}
+.Breadcrumb-Divider {
+  padding: 0 0.5rem;
+}
+.Title-Wrapper {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.Title-Header {
+  color: rgb(26 29 40 / 1);
+  font-size: 2rem;
+  font-weight: 700;
+}
+.Set-Rating {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.Set-Rating-Text {
+  color: rgb(88 99 128 / 1);
+  font-weight: 600;
+  font-size: 14px;
+}
+.Modes-Wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.Card {
+  background-color: rgb(255 255 255 / 1);
+  overflow: clip;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-colored: 0 4px 6px -1px var(--shadow-color),
+    0 2px 4px -2px var(--shadow-color);
+  box-shadow: var(--ring-offset-shadow, 0 0 #0000),
+    var(--ring-shadow, 0 0 #0000), var(--shadow);
+  border-radius: 0.5rem;
+}
+.Modes-Button {
+  display: flex;
+  padding: 0.8rem 1rem;
+  font-weight: 600;
+  gap: 0.8rem;
+  width: 100%;
+  text-wrap: nowrap;
+  justify-content: start;
+}
+.FC-Wrapper {
+  margin-top: 1.5rem;
+}
+.FC {
+  position: relative;
+  height: 428px;
+  display: flex;
+  flex-direction: column;
+}
+.FC-Top-Controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+}
+.FC-Top-Left-Controls {
+  display: flex;
+  gap: 1rem;
+}
+.FC-Top-Right-Controls {
+  display: flex;
+  gap: 1rem;
+}
+.FC-Content {
+  font-size: 2rem;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+.FC-Message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1f1c8b;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem;
+}
+.Controls-Wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.Controls-Left {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+}
+.Controls-Middle {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  width: 11rem;
+  font-weight: 600;
+  color: rgb(88 99 128 / 1);
+}
+.Controls-Right {
+  display: flex;
+  justify-content: end;
+  width: 80px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
