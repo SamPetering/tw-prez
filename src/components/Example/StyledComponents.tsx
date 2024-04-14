@@ -80,7 +80,6 @@ const ModesButton = styled.div`
   padding: 0.8rem 1rem;
   font-weight: 600;
   gap: 0.8rem;
-  width: 100%;
   text-wrap: nowrap;
   justify-content: start;
 `;
@@ -145,7 +144,6 @@ const ControlsMiddle = styled.div`
   gap: 1rem;
   align-items: center;
   width: 11rem;
-  font-size: 1rem;
   font-weight: 600;
   color: rgb(88 99 128 / 1);
 `;
