@@ -120,6 +120,7 @@ function Example() {
       <div className="mx-auto w-full max-w-[793px] overflow-clip rounded-md">
         <MiniFC />
       </div>
+      {/* Controls */}
       <div className="mx-auto flex gap-2 text-lg">
         {Object.keys(m).map((k) => {
           const active = k === selected;

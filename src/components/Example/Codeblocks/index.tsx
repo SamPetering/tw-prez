@@ -133,14 +133,10 @@ const THEME_MAP: Record<ThemeKey, Record<string, string | undefined>> = {
 export default function Codeblock({
   children,
   theme,
-  css,
-  extraCode,
-  lang,
+  blocks,
 }: PropsWithChildren<{
   theme?: ThemeKey;
-  css?: string;
-  extraCode?: Array<{ lang: string; code: string }>;
-  lang?: string;
+  blocks?: Array<{ lang: string; code: string }>;
 }>) {
   const code = reactElementToJSXString(children || <></>, {
     showFunctions: true,
@@ -169,44 +165,22 @@ export default function Codeblock({
         </select>
       </div>
       <div className="flex w-full gap-4">
-        {css && (
-          <div className="roudned-md h-fit w-full overflow-clip shadow-md">
-            <CodeBlock
-              text={css}
-              language="css"
-              theme={currentTheme}
-              showLineNumbers={false}
-              wrapLongLines={true}
-            />
-          </div>
-        )}
-        {extraCode &&
-          extraCode?.length > 0 &&
-          extraCode?.map((ec, i) => (
+        {blocks &&
+          blocks?.length > 0 &&
+          blocks?.map((b, i) => (
             <div
-              key={ec.lang + i}
+              key={b.lang + i}
               className="roudned-md h-fit w-full overflow-clip shadow-md"
             >
               <CodeBlock
-                text={ec.code}
-                language={ec.lang}
+                text={b.code}
+                language={b.lang}
                 theme={currentTheme}
                 showLineNumbers={false}
                 wrapLongLines={true}
               />
             </div>
           ))}
-        {children && (
-          <div className="h-fit w-full overflow-clip rounded-md shadow-md">
-            <CodeBlock
-              text={code}
-              language={lang || 'jsx'}
-              theme={currentTheme}
-              showLineNumbers={false}
-              wrapLongLines={true}
-            />
-          </div>
-        )}
       </div>
     </div>
   );

@@ -241,7 +241,7 @@ export function CodeBlock() {
     useStuff();
   return (
     <Codeblock
-      extraCode={[
+      blocks={[
         {
           lang: 'tsx',
           code: `const QBody = styled.div\`

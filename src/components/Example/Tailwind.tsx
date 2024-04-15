@@ -40,7 +40,7 @@ export default function Tailwind() {
       </div>
       {/* title */}
       <div className="mt-4 flex flex-col">
-        <h1 className="text-qz-gray900 text-[2rem] font-bold">{title}</h1>
+        <h1 className="text-[2rem] font-bold text-qz-gray900">{title}</h1>
         <div className="flex items-center gap-2">
           <Star strokeWidth={0} fill="#ffcd1f" />
           <div className="text-[14px] font-semibold text-gray-600">{`${rating} (${reviews} reviews)`}</div>
@@ -83,7 +83,7 @@ export default function Tailwind() {
             {showDef ? def : term}
           </div>
           {isStart && (
-            <div className="bg-qz-twilight700 absolute bottom-0 left-0 right-0 p-2 text-center font-semibold text-white">
+            <div className="absolute bottom-0 left-0 right-0 bg-qz-twilight700 p-2 text-center font-semibold text-white">
               {clickMessage}
             </div>
           )}
@@ -99,7 +99,7 @@ export default function Tailwind() {
             <Shuffle />
           </button>
         </div>
-        <div className="text-qz-gray600 flex w-[11rem] items-center justify-between gap-4 font-semibold">
+        <div className="flex w-[11rem] items-center justify-between gap-4 font-semibold text-qz-gray600">
           <button disabled={isStart} onClick={prev}>
             <CircleArrowLeft strokeWidth={1} height={48} width={48} />
           </button>
@@ -124,8 +124,7 @@ export function CodeBlock() {
     useStuff();
   return (
     <Codeblock
-      lang="tsx"
-      extraCode={[
+      blocks={[
         {
           lang: 'tsx',
           code: `<div className="bg-qz-gray200 p-4 text-gray-800">
