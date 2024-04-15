@@ -61,7 +61,12 @@ function Stepper() {
           >
             {'<C-p>'}
           </button>
-          <h1 className="text-4xl font-bold">{steps[step].id}</h1>
+          <h1
+            key={steps[step].id}
+            className="text-4xl font-bold transition-all duration-300 animate-in fade-in slide-in-from-top-4"
+          >
+            {steps[step].id}
+          </h1>
           <button
             className={cn(
               'bg-qz-twilight500 hover:bg-qz-twilight600 text-qz-gray100',
@@ -97,7 +102,10 @@ function Stepper() {
           })}
         </div>
       </div>
-      <div className="mt-8 flex w-full max-w-7xl justify-center rounded-md">
+      <div
+        key={steps[step].id}
+        className="mt-8 flex justify-center duration-500 animate-in fade-in"
+      >
         {steps[step].component}
       </div>
     </div>

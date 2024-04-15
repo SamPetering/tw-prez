@@ -9,9 +9,11 @@ import {
   WandSparkles,
   RefreshCcwDot,
 } from 'lucide-react';
-import PlainCss from './PlainCss';
-import StyledComponents from './StyledComponents';
-import Tailwind from './Tailwind';
+import PlainCss, { CodeBlock as PlainCssCodeBlock } from './PlainCss';
+import StyledComponents, {
+  CodeBlock as StyledComponentsCodeBlock,
+} from './StyledComponents';
+import Tailwind, { CodeBlock as TailwindCodeBlock } from './Tailwind';
 
 export const title = 'U.S. State Capitals';
 export const breadcrumbs = [
@@ -29,23 +31,43 @@ export const reviews = 2_124;
 export const modes = [
   {
     t: 'Flashcards',
-    i: <PictureInPicture2 color="#4255FF" />,
+    i: (
+      <div>
+        <PictureInPicture2 color="#4255FF" />
+      </div>
+    ),
   },
   {
     t: 'Learn',
-    i: <RefreshCcwDot color="#4255FF" />,
+    i: (
+      <div>
+        <RefreshCcwDot color="#4255FF" />
+      </div>
+    ),
   },
   {
     t: 'Test',
-    i: <BookCheck color="#4255FF" />,
+    i: (
+      <div>
+        <BookCheck color="#4255FF" />
+      </div>
+    ),
   },
   {
     t: 'Match',
-    i: <CopyPlus color="#4255FF" />,
+    i: (
+      <div>
+        <CopyPlus color="#4255FF" />
+      </div>
+    ),
   },
   {
     t: 'Q-Chat',
-    i: <WandSparkles color="#4255FF" />,
+    i: (
+      <div>
+        <WandSparkles color="#4255FF" />
+      </div>
+    ),
   },
 ];
 export const hint = 'Get a hint';
@@ -74,27 +96,38 @@ export function useStuff() {
 }
 
 const m = {
-  'plain-css': PlainCss,
-  'styled-components': StyledComponents,
-  tailwind: Tailwind,
+  'plain-css': {
+    MiniFC: PlainCss,
+    Codeblock: PlainCssCodeBlock,
+  },
+  'styled-components': {
+    MiniFC: StyledComponents,
+    Codeblock: StyledComponentsCodeBlock,
+  },
+  tailwind: {
+    MiniFC: Tailwind,
+    Codeblock: TailwindCodeBlock,
+  },
 };
 function Example() {
   const [selected, setSelected] = useState<keyof typeof m>('plain-css');
-  const Current = m[selected];
+  const MiniFC = m[selected].MiniFC;
+  const Code = m[selected].Codeblock;
+
   return (
     <div className="flex w-full flex-col gap-8">
-      <div className="flex justify-center">example time</div>
-      <div className="overflow-clip rounded-md">
-        <Current />
+      {/* Mini FC */}
+      <div className="mx-auto w-full max-w-[793px] overflow-clip rounded-md">
+        <MiniFC />
       </div>
-      <div className="flex gap-2 text-lg">
+      <div className="mx-auto flex gap-2 text-lg">
         {Object.keys(m).map((k) => {
           const active = k === selected;
           return (
             <button
               className={cn(
-                'transition-all',
-                active ? 'text-green-500' : 'text-zinc-500'
+                'rounded-md px-3 py-1 text-white transition-all',
+                active ? 'bg-qz-twilight500' : 'text-qz-gray600'
               )}
               onClick={() => setSelected(k as keyof typeof m)}
               key={k}
@@ -104,6 +137,10 @@ function Example() {
             </button>
           );
         })}
+      </div>
+      {/* code block */}
+      <div className="mx-auto w-full">
+        <Code />
       </div>
     </div>
   );
