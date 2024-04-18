@@ -100,10 +100,12 @@ export default function Tailwind() {
           </button>
         </div>
         <div className="flex w-[11rem] items-center justify-between gap-4 font-semibold text-qz-gray600">
+          {/* LEFT BUTTON */}
           <button disabled={isStart} onClick={prev}>
             <CircleArrowLeft strokeWidth={1} height={48} width={48} />
           </button>
           <div>{`${current + 1} / ${cardData.length}`}</div>
+          {/* RIGHT BUTTON */}
           <button disabled={isEnd} onClick={next}>
             <CircleArrowRight strokeWidth={1} height={48} width={48} />
           </button>

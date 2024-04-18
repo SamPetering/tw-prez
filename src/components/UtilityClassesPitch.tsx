@@ -99,7 +99,7 @@ const VButtonWrapper = styled.div\`
           />
           <br />
           <h5 className="mb-8 text-center text-xl font-semibold">
-            Abstraction 1
+            Utility Styled Components
           </h5>
           {/* Utility SCs */}
           <Codeblock
@@ -136,6 +136,9 @@ return(<body>
           />
           <br />
           {/* Utility Constants */}
+          <h5 className="mb-8 text-center text-xl font-semibold">
+            Utility Class Names
+          </h5>
           <Codeblock
             blocks={[
               {
@@ -169,6 +172,7 @@ return (<body>
           />
           <br />
           {/* Tailwind */}
+          <h5 className="mb-8 text-center text-xl font-semibold">Tailwind</h5>
           <Codeblock
             blocks={[
               {

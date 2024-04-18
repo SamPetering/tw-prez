@@ -65,7 +65,7 @@ const ModesWrapper = styled.div`
   justify-content: space-between;
   gap: 0.75rem;
 `;
-const Card = css`
+export const Card = css`
   background-color: rgb(255 255 255 / 1);
   overflow: clip;
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
