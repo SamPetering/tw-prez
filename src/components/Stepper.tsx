@@ -42,18 +42,21 @@ const steps = [
         <h3 className="py-4 text-2xl">Screens</h3>
         <iframe
           src="https://tailwindcss.com/docs/screens"
-          className="aspect-square w-[800px] overflow-clip rounded-md shadow-md"
+          className="h-[800px] w-[1000px] overflow-clip rounded-md shadow-md"
         />
+        <br />
+        <br />
         <h3 className="py-4 text-2xl">Colors</h3>
         <iframe
           src="https://tailwindcss.com/docs/customizing-colors"
-          className="aspect-square w-[800px] overflow-clip rounded-md shadow-md"
+          className="h-[800px] w-[1000px] overflow-clip rounded-md shadow-md"
         />
+        <br />
         <br />
         <h3 className="py-4 text-2xl">Spacing</h3>
         <iframe
           src="https://tailwindcss.com/docs/customizing-spacing"
-          className="aspect-square w-[800px] overflow-clip rounded-md shadow-md"
+          className="h-[800px] w-[1000px] overflow-clip rounded-md shadow-md"
         />
       </div>
     ),
@@ -62,21 +65,21 @@ const steps = [
     id: 'Example',
     component: <Example />,
   },
-  {
-    id: 'Ecosystem',
-    component: (
-      <div className="mx-auto w-fit">
-        <h3 className="py-4 text-2xl">DX / Tooling</h3>
-        <h3 className="py-4 text-2xl">Plugins</h3>
-        <h3 className="py-4 text-2xl">Libraries</h3>
-        <h4 className="text-lg">ShadCN</h4>
-        <iframe
-          src="https://ui.shadcn.com/"
-          className="h-[800px] w-[1200px] overflow-clip rounded-md"
-        />
-      </div>
-    ),
-  },
+  // {
+  //   id: 'Ecosystem',
+  //   component: (
+  //     <div className="mx-auto w-fit">
+  //       <h3 className="py-4 text-2xl">DX / Tooling</h3>
+  //       <h3 className="py-4 text-2xl">Plugins</h3>
+  //       <h3 className="py-4 text-2xl">Libraries</h3>
+  //       <h4 className="text-lg">ShadCN</h4>
+  //       <iframe
+  //         src="https://ui.shadcn.com/"
+  //         className="h-[800px] w-[1200px] overflow-clip rounded-md"
+  //       />
+  //     </div>
+  //   ),
+  // },
   {
     id: 'thx ^_^',
     component: (
