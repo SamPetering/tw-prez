@@ -5,42 +5,99 @@ import { useRef, useState } from 'react';
 import Example from './Example/Index';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import Codeblock from './Example/Codeblocks';
 import UtilityClassesPitch from './UtilityClassesPitch';
+import twIcon from '../../public/TW.svg';
+import Image from 'next/image';
 const steps = [
   {
     id: 'Intro',
     component: (
-      <div>
-        <ul>
-          <li></li>
-        </ul>
+      <div className="">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Image
+          className="animate-bounce duration-1000"
+          src={twIcon}
+          height={100}
+          width={200}
+          alt="tw"
+        />
       </div>
     ),
-  },
-  {
-    id: 'UI is hard',
-    component: <div></div>,
-  },
-  {
-    id: 'How can TW help',
-    component: <div></div>,
   },
   {
     id: 'Utility Classes',
     component: <UtilityClassesPitch />,
   },
   {
+    id: 'TW Design System',
+    component: (
+      <div className="mx-auto w-fit">
+        <h3 className="py-4 text-2xl">Screens</h3>
+        <iframe
+          src="https://tailwindcss.com/docs/screens"
+          className="aspect-square w-[800px] overflow-clip rounded-md shadow-md"
+        />
+        <h3 className="py-4 text-2xl">Colors</h3>
+        <iframe
+          src="https://tailwindcss.com/docs/customizing-colors"
+          className="aspect-square w-[800px] overflow-clip rounded-md shadow-md"
+        />
+        <br />
+        <h3 className="py-4 text-2xl">Spacing</h3>
+        <iframe
+          src="https://tailwindcss.com/docs/customizing-spacing"
+          className="aspect-square w-[800px] overflow-clip rounded-md shadow-md"
+        />
+      </div>
+    ),
+  },
+  {
     id: 'Example',
     component: <Example />,
   },
   {
-    id: 'Drawbacks',
-    component: <div>drawbacks :/</div>,
+    id: 'Ecosystem',
+    component: (
+      <div className="mx-auto w-fit">
+        <h3 className="py-4 text-2xl">DX / Tooling</h3>
+        <h3 className="py-4 text-2xl">Plugins</h3>
+        <h3 className="py-4 text-2xl">Libraries</h3>
+        <h4 className="text-lg">ShadCN</h4>
+        <iframe
+          src="https://ui.shadcn.com/"
+          className="h-[800px] w-[1200px] overflow-clip rounded-md"
+        />
+      </div>
+    ),
   },
   {
-    id: 'Conclusion',
-    component: <div>conclusion!</div>,
+    id: 'thx ^_^',
+    component: (
+      <div className="">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Image
+          className="animate-bounce duration-1000"
+          src={twIcon}
+          height={100}
+          width={200}
+          alt="tw"
+        />
+      </div>
+    ),
   },
 ];
 

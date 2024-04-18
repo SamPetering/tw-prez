@@ -117,7 +117,7 @@ function Example() {
   return (
     <div className="flex w-full flex-col gap-8">
       {/* Mini FC */}
-      <div className="mx-auto w-full max-w-[793px] overflow-clip rounded-md">
+      <div className="mx-auto w-full max-w-[793px] overflow-clip rounded-md shadow-xl">
         <MiniFC />
       </div>
       {/* Controls */}

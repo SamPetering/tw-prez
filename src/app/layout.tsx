@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-
+import Image from 'next/image';
+import twIcon from '../../public/TW.svg';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -19,10 +20,24 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'bg-qz-gray200 text-qz-gray800 min-h-[100dvh] pt-6',
+          'relative min-h-[100dvh] bg-qz-gray200 pt-6 text-qz-gray800',
           inter.className
         )}
       >
+        <Image
+          className="absolute -left-1/3 top-16 -z-50 opacity-[0.15] blur-3xl"
+          src={twIcon}
+          alt="tw"
+          height={1200}
+          width={1200}
+        />
+        <Image
+          className="absolute -right-1/3 top-[30rem] -z-50 opacity-[0.2] blur-3xl"
+          src={twIcon}
+          alt="tw"
+          height={1200}
+          width={1200}
+        />
         {children}
       </body>
     </html>
