@@ -4,18 +4,31 @@ import { cn } from '@/lib/utils';
 import { useRef, useState } from 'react';
 import Example from './Example/Index';
 import { useHotkeys } from 'react-hotkeys-hook';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import Codeblock from './Example/Codeblocks';
+import UtilityClassesPitch from './UtilityClassesPitch';
 const steps = [
   {
     id: 'Intro',
-    component: <div>content!</div>,
+    component: (
+      <div>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+    ),
   },
   {
-    id: 'Philosophy',
-    component: <div>philosophy!</div>,
+    id: 'UI is hard',
+    component: <div></div>,
   },
   {
-    id: 'Benefits',
-    component: <div>benefits!</div>,
+    id: 'How can TW help',
+    component: <div></div>,
+  },
+  {
+    id: 'Utility Classes',
+    component: <UtilityClassesPitch />,
   },
   {
     id: 'Example',
@@ -33,7 +46,7 @@ const steps = [
 
 function Stepper() {
   const [step, setStep] = useState(0);
-  const pRef = useRef<HTMLButtonElement>(null);
+  const bRef = useRef<HTMLButtonElement>(null);
   const nRef = useRef<HTMLButtonElement>(null);
   const changeStep = (dir: 'left' | 'right') => {
     if (dir === 'left') {
@@ -42,7 +55,7 @@ function Stepper() {
       setStep((prev) => (prev >= steps.length - 1 ? 0 : prev + 1));
     }
   };
-  useHotkeys('ctrl+p', () => pRef.current?.click());
+  useHotkeys('ctrl+b', () => bRef.current?.click());
   useHotkeys('ctrl+n', () => nRef.current?.click());
   return (
     <div>
@@ -52,14 +65,14 @@ function Stepper() {
         <div className="w-ful flex items-center justify-between">
           <button
             className={cn(
-              'bg-qz-twilight500 hover:bg-qz-twilight600 text-qz-gray100',
-              'w-fit rounded-md px-4 py-2 font-semibold shadow-md transition-colors'
+              'bg-qz-twilight500 text-qz-gray100 hover:bg-qz-twilight600',
+              'w-fit rounded-md px-1 py-1 font-semibold shadow-md transition-colors'
             )}
-            ref={pRef}
+            ref={bRef}
             onClick={() => changeStep('left')}
             type="button"
           >
-            {'<C-p>'}
+            <ArrowLeft />
           </button>
           <h1
             key={steps[step].id}
@@ -69,14 +82,14 @@ function Stepper() {
           </h1>
           <button
             className={cn(
-              'bg-qz-twilight500 hover:bg-qz-twilight600 text-qz-gray100',
-              'w-fit rounded-md px-4 py-2 font-semibold shadow-md transition-colors'
+              'bg-qz-twilight500 text-qz-gray100 hover:bg-qz-twilight600',
+              'w-fit rounded-md px-1 py-1 font-semibold shadow-md transition-colors'
             )}
             ref={nRef}
             onClick={() => changeStep('right')}
             type="button"
           >
-            {'<C-n>'}
+            <ArrowRight />
           </button>
         </div>
         {/* steps */}
@@ -88,7 +101,7 @@ function Stepper() {
               <button
                 key={s.id}
                 className={cn(
-                  'bg-qz-mint500 h-2 w-full rounded-full transition-all',
+                  'h-2 w-full rounded-full bg-qz-mint500 transition-all',
                   complete
                     ? 'opacity-80'
                     : active

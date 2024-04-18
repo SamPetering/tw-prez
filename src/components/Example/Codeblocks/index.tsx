@@ -134,7 +134,11 @@ export default function Codeblock({
   children,
   theme,
   blocks,
+  enableThemePicker,
+  title,
 }: PropsWithChildren<{
+  title?: string;
+  enableThemePicker?: boolean;
   theme?: ThemeKey;
   blocks?: Array<{ lang: string; code: string }>;
 }>) {
@@ -147,23 +151,28 @@ export default function Codeblock({
   const currentTheme = THEME_MAP[selectedTheme];
   return (
     <div className="w-full">
-      <div className="group relative mb-4 w-fit shadow-sm">
-        <div className="pointer-events-none absolute right-4 top-2 cursor-pointer">
-          <ChevronsUpDown color="black" height={16} width={16} />
+      {enableThemePicker && (
+        <div className="group relative mb-4 w-fit shadow-sm">
+          <div className="pointer-events-none absolute right-4 top-2 cursor-pointer">
+            <ChevronsUpDown color="black" height={16} width={16} />
+          </div>
+          <select
+            name="themes"
+            className="cursor-pointer appearance-none rounded-md px-4 py-1"
+            onChange={(e) => setSelectedTheme(e.target.value as ThemeKey)}
+            defaultValue={selectedTheme}
+          >
+            {AllThemeKeys.map((k) => (
+              <option value={k} key={k}>
+                {k}
+              </option>
+            ))}
+          </select>
         </div>
-        <select
-          name="themes"
-          className="cursor-pointer appearance-none rounded-md px-4 py-1"
-          onChange={(e) => setSelectedTheme(e.target.value as ThemeKey)}
-          defaultValue={selectedTheme}
-        >
-          {AllThemeKeys.map((k) => (
-            <option value={k} key={k}>
-              {k}
-            </option>
-          ))}
-        </select>
-      </div>
+      )}
+      {title && (
+        <h5 className="mb-1 pl-2 font-medium text-qz-gray700">{title}</h5>
+      )}
       <div className="flex w-full gap-4">
         {blocks &&
           blocks?.length > 0 &&
