@@ -63,7 +63,7 @@ export default function Tailwind() {
       {/* flashcards */}
       <div className="mt-6">
         <div
-          className="relative flex h-[428px] flex-col overflow-clip rounded-[0.5rem] bg-white shadow-md"
+          className="relative flex h-[428px] flex-col overflow-clip rounded-[0.5rem] bg-white shadow-md duration-300 animate-in slide-in-from-left-full"
           onClick={flip}
           key={def}
         >
@@ -101,12 +101,20 @@ export default function Tailwind() {
         </div>
         <div className="flex w-[11rem] items-center justify-between gap-4 font-semibold text-qz-gray600">
           {/* LEFT BUTTON */}
-          <button disabled={isStart} onClick={prev}>
+          <button
+            className="disabled:text-qz-gray400"
+            disabled={isStart}
+            onClick={prev}
+          >
             <CircleArrowLeft strokeWidth={1} height={48} width={48} />
           </button>
           <div>{`${current + 1} / ${cardData.length}`}</div>
           {/* RIGHT BUTTON */}
-          <button disabled={isEnd} onClick={next}>
+          <button
+            className="disabled:text-qz-gray400"
+            disabled={isEnd}
+            onClick={next}
+          >
             <CircleArrowRight strokeWidth={1} height={48} width={48} />
           </button>
         </div>
